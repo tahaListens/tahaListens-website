@@ -1,17 +1,16 @@
 {
-    "client_id": "https://a795-96-10-225-165.ngrok-free.app/client-metadata.json",
-    "client_name": "Taha Listens",
-    "client_uri": "https://a795-96-10-225-165.ngrok-free.app",
-    "logo_uri": "https://a795-96-10-225-165.ngrok-free.app/logo.png",
-    "tos_uri": "https://a795-96-10-225-165.ngrok-free.app/tos",
-    "policy_uri": "https://a795-96-10-225-165.ngrok-free.app/policy",
-    "redirect_uris": ["https://a795-96-10-225-165.ngrok-free.app"],
-    "jwks_uri": "https://bsky.social/jwks",
-    "scope": "atproto",
-    "grant_types": ["authorization_code", "refresh_token"],
-    "response_types": ["code"],
-    "token_endpoint_auth_method": "none",
-    "application_type": "web",
-    "dpop_bound_access_tokens": true
-  }
-  
+  "client_id": "https://994c-96-10-225-165.ngrok-free.app/client-metadata.json",
+  "client_name": "Taha Listens",
+  "client_uri": "https://994c-96-10-225-165.ngrok-free.app",
+  "logo_uri": "https://994c-96-10-225-165.ngrok-free.app/logo.png",
+  "tos_uri": "https://994c-96-10-225-165.ngrok-free.app/tos",
+  "policy_uri": "https://994c-96-10-225-165.ngrok-free.app/policy",
+  "redirect_uris": ["https://994c-96-10-225-165.ngrok-free.app"],
+  "jwks_uri": "https://bsky.social/jwks",
+  "scope": "atproto",
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "token_endpoint_auth_method": "none",
+  "application_type": "web",
+  "dpop_bound_access_tokens": true
+}

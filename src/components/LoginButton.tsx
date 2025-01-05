@@ -8,23 +8,33 @@ export default function LoginButton() {
   const [isReady, setIsReady] = useState(false);
   const clientRef = useRef<BrowserOAuthClient>();
 
-  const clientId = "https://a795-96-10-225-165.ngrok-free.app/client-metadata.json";
-  const redirectUri = "https://a795-96-10-225-165.ngrok-free.app";
-  const handleResolver = "https://tahabot.bsky.social"; // Default handle resolver
+  const clientId = "https://994c-96-10-225-165.ngrok-free.app/client-metadata.json";
+  const redirectUri = "https://994c-96-10-225-165.ngrok-free.app"; 
+  //const clientId = process.env.NEXT_PUBLIC_CLIENT_ID!;
+  //const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI!;
+  //const handleResolver = "https://tahabot.bsky.social"; // Default handle resolver
+  //const handleResolver = "https://bsky.social/xrpc/com.atproto.identity.resolveHandle";
+  const handleResolver= "https://bsky.social";
 
   useEffect(() => {
     const setupOAuth = async () => {
       try {
         const client = new BrowserOAuthClient({
-          clientId,
-          handleResolver, // Using Bluesky's resolver for now
+          handleResolver: 'https://bsky.social', // Use Bluesky's default handle resolver
+          clientMetadata: undefined, // Supports localhost-based testing
         });
+        // const client = new BrowserOAuthClient({
+        //   clientId,
+        //   handleResolver, // Using Bluesky's resolver for now
+        // });
 
         await client.init();
         clientRef.current = client;
         setIsReady(true);
 
-        const restoredSession = await client.restore(client.getLastSessionSub());
+        //const restoredSession = await client.restore(client.getLastSessionSub());
+        const restoredSession = await client.restore(client.getSession()?.sub);
+
         if (restoredSession) {
           console.log("Restored session:", restoredSession);
           setSession(restoredSession);
