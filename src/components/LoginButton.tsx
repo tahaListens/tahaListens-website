@@ -35,7 +35,7 @@ export default function BlueskyLogin() {
         type="text"
         value={handle}
         onChange={(e) => setHandle(e.target.value)}
-        placeholder="Your Bluesky handle"
+        placeholder="e.g. handle.bsky.social"
       />
       <button type="submit" disabled={loading}>
         {loading ? "Connecting..." : "Sign in with Bluesky"}
