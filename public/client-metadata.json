@@ -1,16 +1,17 @@
+
 {
-  "client_id": "hhttps://8511-45-27-90-191.ngrok-free.app/client-metadata.json",
+  "client_id": "https://b442-96-10-225-165.ngrok-free.app/client-metadata.json",
   "client_name": "Taha Listens",
-  "client_uri": "https://8511-45-27-90-191.ngrok-free.app",
-  "logo_uri": "https://8511-45-27-90-191.ngrok-free.app/logo.png",
-  "tos_uri": "https://8511-45-27-90-191.ngrok-free.app/tos",
-  "policy_uri": "https://8511-45-27-90-191.ngrok-free.app/policy",
-  "redirect_uris": ["https://8511-45-27-90-191.ngrok-free.app"],
-  "jwks_uri": "https://bsky.social/jwks",
-  "scope": "atproto",
+  "client_uri": "https://b442-96-10-225-165.ngrok-free.app",
+  "application_type": "web",
   "grant_types": ["authorization_code", "refresh_token"],
   "response_types": ["code"],
-  "token_endpoint_auth_method": "none",
-  "application_type": "web",
-  "dpop_bound_access_tokens": true
+  "token_endpoint_auth_method": "private_key_jwt",
+  "token_endpoint_auth_signing_alg": "ES256",
+  "scope": "atproto",
+  "redirect_uris": [
+    "https://b442-96-10-225-165.ngrok-free.app/auth/callback"
+  ],
+  "dpop_bound_access_tokens": true,
+  "jwks_uri": "https://b442-96-10-225-165.ngrok-free.app/jwks.json"
 }
