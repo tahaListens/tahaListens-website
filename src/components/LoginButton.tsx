@@ -8,33 +8,26 @@ export default function LoginButton() {
   const [isReady, setIsReady] = useState(false);
   const clientRef = useRef<BrowserOAuthClient>();
 
-  const clientId = "https://994c-96-10-225-165.ngrok-free.app/client-metadata.json";
-  const redirectUri = "https://994c-96-10-225-165.ngrok-free.app"; 
-  //const clientId = process.env.NEXT_PUBLIC_CLIENT_ID!;
-  //const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI!;
-  //const handleResolver = "https://tahabot.bsky.social"; // Default handle resolver
-  //const handleResolver = "https://bsky.social/xrpc/com.atproto.identity.resolveHandle";
-  const handleResolver= "https://bsky.social";
+  // Updated NGROK URL for testing environment
+  const clientId = process.env.NEXT_PUBLIC_CLIENT_ID!;
+  const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI!;
+  const handleResolver = "https://bsky.social/xrpc/com.atproto.identity.resolveHandle";
 
   useEffect(() => {
     const setupOAuth = async () => {
       try {
+        // Initialize the client for NGROK testing environment
         const client = new BrowserOAuthClient({
-          handleResolver: 'https://bsky.social', // Use Bluesky's default handle resolver
-          clientMetadata: undefined, // Supports localhost-based testing
+          clientId,
+          handleResolver, // Bluesky default resolver
         });
-        // const client = new BrowserOAuthClient({
-        //   clientId,
-        //   handleResolver, // Using Bluesky's resolver for now
-        // });
 
         await client.init();
         clientRef.current = client;
         setIsReady(true);
 
-        //const restoredSession = await client.restore(client.getLastSessionSub());
+        // Restore session with the updated method
         const restoredSession = await client.restore(client.getSession()?.sub);
-
         if (restoredSession) {
           console.log("Restored session:", restoredSession);
           setSession(restoredSession);
@@ -51,7 +44,8 @@ export default function LoginButton() {
     if (!clientRef.current) return;
 
     try {
-      await clientRef.current.signIn("bsky.social", {
+      // Sign-in using a valid handle (adjust this to test different users)
+      await clientRef.current.signIn("tahabot.bsky.social", {
         state: "my-app-state",
       });
     } catch (error) {
